@@ -8,10 +8,10 @@ class Menu:
 
 	Parameters
 	----------
-	title : Optional[str]
+	title : Optional(str)
 		This is the text displayed at the top of the menu list.
 		Defaults to "Choose one:"
-	start : Optional[int]
+	start : Optional(int)
 		This changes which number the normal entries indexes from.
 	"""
 
