@@ -8,6 +8,7 @@ class Menu:
 
 	Parameters
 	----------
+	
 	title : Optional(str)
 		This is the text displayed at the top of the menu list.
 		Defaults to "Choose one:"
