@@ -11,8 +11,7 @@ import sys
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 
-import os
-import sys
+import os, sys
 sys.path.insert(0, os.path.abspath('..'))
 
 # -- Project information -----------------------------------------------------
@@ -36,6 +35,4 @@ extensions = [
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'alabaster'
-
-sys.path.append('C:\\Users\\dnorh\\OneDrive\\Projects\\Python\\OOP\\Menu\\Sphinx\\source')
+html_theme = 'sphinx_rtd_theme'
