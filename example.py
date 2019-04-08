@@ -9,4 +9,4 @@ try:
 except termmenu.EntryNotFoundError:
     print("Oof")
 else:
-    print(f"You chose {result}") 
+    print(f"You chose {result}")

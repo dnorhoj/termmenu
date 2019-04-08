@@ -2,6 +2,20 @@ class EntryNotFoundError(Exception):
 	pass
 
 class Menu:
+	"""Menu class.
+	Create an instance of this class to start off.
+	A number of options can be passed to the :class:`Menu`
+
+	Parameters
+	----------
+	title : Optional[str]
+		This is the text displayed at the top of the menu list.
+		Defaults to "Choose one:"
+	start : Optional[int]
+		This changes which number the normal entries indexes from.
+	"""
+
+
 	def __init__(self, **kwargs):
 		self.title = kwargs.get('title', 'Choose one:')
 		self.start = kwargs.get('start', 1)
