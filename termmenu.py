@@ -27,13 +27,13 @@ class Menu:
 	def run(self, **kwargs):
 		prompt = kwargs.get('prompt', '>')
 		allowother = kwargs.get('allowother', False)
-		message = kwargs.get('message', "{}. {}")
+		message = kwargs.get('message', "{entry}. {name}")
 
 		entries = {**self.entrydict, **self.specialentries}
 
 		print(self.title)		
 		for name, entry in entries.items():
-			print(message.format(name, entry['text']))
+			print(message.format(entry=name, name=entry['text']))
 
 		ans = input(f"{prompt} ")
 
