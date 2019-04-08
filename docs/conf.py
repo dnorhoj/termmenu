@@ -12,7 +12,8 @@ import sys
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 
 import os, sys
-sys.path.insert(0, os.path.abspath('..'))
+sys.path.insert(0, os.path.abspath('.'))
+sys.path.append(os.path.abspath('..'))
 
 # -- Project information -----------------------------------------------------
 
