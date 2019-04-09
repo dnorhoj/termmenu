@@ -2,9 +2,8 @@ class EntryNotFoundError(Exception):
 	pass
 
 class Menu:
-	r"""Menu class.
-	Create an instance of this class to start off.
-	A number of options can be passed to the :class:`Menu`
+	r"""Create an instance of this class to start off.
+	A number of options can be passed to the :class:`Menu` class
 
 	Parameters
 	-----------
@@ -12,7 +11,7 @@ class Menu:
 		This is the text displayed at the top of the menu list.
 		Defaults to "Choose one:"
 	start: Optional[:class:`int`]
-		This changes which number the normal entries indexes from.
+		This changes which number the normal entries indexes from, defaults to 1.
 
 	"""
 
@@ -26,9 +25,22 @@ class Menu:
 		self.specialentries = {}
 	
 	def add_entry(self, text:str, **kwargs):
+		r"""This function adds new entries to the list.
+
+		Parameters
+		-----------
+		text: :class:`str`
+			The text next to the number or custom entry key.
+		run: Optional[:class:`function`]
+			Function that will be run when user selects that value.
+			Defaults to ``None`` and it will just return selected entry.
+		entry: Optional[:class:`str`]
+			Todo
+		"""
 		entry = {}
 		entry['text'] = text
-		entry['run'] = kwargs.get('run', None)
+		if callable(kwargs.get('run', None)):
+			entry['run'] = kwargs.get('run', None)
 		
 		customentry = kwargs.get('entry', None)
 
