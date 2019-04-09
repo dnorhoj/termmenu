@@ -36,6 +36,12 @@ class Menu:
 			Defaults to ``None`` and it will just return selected entry.
 		entry: Optional[:class:`str`]
 			Todo
+		
+		Returns
+		--------
+		self (:class:`Menu`)
+			Returns ``self`` so that you can stack them like
+			``Menu().add_entry("1").add_entry("2")``
 		"""
 		entry = {}
 		entry['text'] = text
@@ -46,10 +52,11 @@ class Menu:
 
 		if not customentry is None:
 			self.specialentries[customentry] = entry
-			return
+			return self
 
 		self.entrydict[str(self.next+self.start)] = entry
 		self.next += 1
+		return self
 
 	def run(self, **kwargs):
 		prompt = kwargs.get('prompt', '>')

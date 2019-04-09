@@ -8,3 +8,4 @@ Menu class
 ----------
 
 .. autoclass:: Menu
+    :members:
