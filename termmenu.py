@@ -2,18 +2,18 @@ class EntryNotFoundError(Exception):
 	pass
 
 class Menu:
-	"""Menu class.
+	r"""Menu class.
 	Create an instance of this class to start off.
 	A number of options can be passed to the :class:`Menu`
 
 	Parameters
-	----------
-	
-	title : Optional(str)
+	-----------
+	title: Optional[:class:`str`]
 		This is the text displayed at the top of the menu list.
 		Defaults to "Choose one:"
-	start : Optional(int)
+	start: Optional[:class:`int`]
 		This changes which number the normal entries indexes from.
+
 	"""
 
 

@@ -1,9 +1,18 @@
 Welcome to pytermmenu's documentation!
 ======================================
 
-* :ref:`quickstart`
-* :ref:`usage`
+Documentation contents
+----------------------
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+   
+   intro
+   quickstart
+   usage
+
+If you can't see what you're looking for, try these pages:
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
