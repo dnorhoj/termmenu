@@ -30,4 +30,6 @@ To add entries, we use `Menu.add_entry`, usage:
 Menu.add_entry(text, run=None, entry=None)
 ```
 
-class `text`
+## Documentation
+
+[ReadTheDocs](https://pytermmenu.readthedocs.io/en/latest/index.html)
