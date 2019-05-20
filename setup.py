@@ -4,7 +4,7 @@ setuptools.setup(
     name="termmenu",
     version="1.0",
     author="dnorhoj",
-    author_email="",
+    author_email="daniel.norhoj@gmail.com",
     description="A tool for making terminal menus.",
     long_description=open("README.md", "r").read(),
     long_description_content_type="text/markdown",
