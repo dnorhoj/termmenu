@@ -1,5 +1,8 @@
-class EntryNotFoundError(Exception):
-	pass
+import re
+
+class EntryNotFoundError(Exception): pass
+
+class CustomEntryIsNumberError(Exception): pass
 
 class Menu:
 	r"""Create an instance of this class to start off.
@@ -35,8 +38,11 @@ class Menu:
 			Function that will be run when user selects that value.
 			Defaults to ``None`` and it will just return selected entry.
 		entry: Optional[:class:`str`]
-			Todo
-		
+			Custom entry, instead of number.
+			All custom entries will be displayed after the numbered entries.
+			Custom entry has to include at least one character that isn't a number or it will raise :class:`CustomEntryIsNumberError`.
+			If no entry is specified it will default to using the number after the last number.
+
 		Returns
 		--------
 		self (:class:`Menu`)
@@ -51,23 +57,53 @@ class Menu:
 		customentry = kwargs.get('entry', None)
 
 		if not customentry is None:
-			self.specialentries[customentry] = entry
-			return self
+			for char in list(customentry):
+				if not re.search(r"[0-9]", char):
+					self.specialentries[customentry] = entry
+					return self
+
+			raise CustomEntryIsNumberError
 
 		self.entrydict[str(self.next+self.start)] = entry
 		self.next += 1
 		return self
 
 	def run(self, **kwargs):
+		r"""This function runs the menu that you have created.
+
+		Parameters
+		-----------
+		prompt: Optional[:class:`str`]
+			The prompt text to be used in the input()
+			Defaults to "> "
+		allowother: Optional[:class:`bool`]
+			Changes wether it's going to return :class:`EntryNotFoundError` if user writes entry that isn't in the list.
+			Defaults to ``True``
+		listformat: Optional[:class:`str`]
+			How the menu list is shown.
+
+			Placeholders
+			------------
+			{entry}: the number or custom entry.
+			{name}: name of the entry.
+
+			Defaults to: "{entry}. {name}" (example: "2. Settings")
+
+		Returns
+		--------
+		:class:`str`
+			Returns the user's input if it doesn't raise EntryNotFoundError.
+
+		"""
 		prompt = kwargs.get('prompt', '>')
 		allowother = kwargs.get('allowother', False)
-		message = kwargs.get('message', "{entry}. {name}")
+		listformat = kwargs.get('listformat', "{entry}. {name}")
 
 		entries = {**self.entrydict, **self.specialentries}
 
 		print(self.title)		
 		for name, entry in entries.items():
-			print(message.format(entry=name, name=entry['text']))
+			print(listformat.format(entry=name, name=entry['text']))
 
 		ans = input(f"{prompt} ")
 
