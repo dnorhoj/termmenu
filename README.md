@@ -16,7 +16,6 @@ Choose one:
 
 Read the documentation on [ReadTheDocs](https://pytermmenu.readthedocs.io/en/latest/index.html).
 
-
 ## Usage
 
 To start off you need to import the library, and create a new menu.
