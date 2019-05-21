@@ -6,9 +6,9 @@ The idea is that you should be able to make a terminal menu (below) easily and c
 
 ```text
 Choose one:
-1. Start game
-2. Settings
-3. And more
+0. Start game
+1. Settings
+2. And more
 > {User input here}
 ```
 
