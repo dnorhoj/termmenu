@@ -1,2 +1,2 @@
-from termmenu import *
+from termmenu.termmenu import *
 name = "termmenu"
