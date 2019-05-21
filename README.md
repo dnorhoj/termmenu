@@ -12,6 +12,11 @@ Choose one:
 > {User input here}
 ```
 
+## Documentation
+
+Read the documentation on [ReadTheDocs](https://pytermmenu.readthedocs.io/en/latest/index.html).
+
+
 ## Usage
 
 To start off you need to import the library, and create a new menu.
@@ -29,7 +34,3 @@ To add entries, we use `Menu.add_entry`, usage:
 ```py
 Menu.add_entry(text, run=None, entry=None)
 ```
-
-## Documentation
-
-[ReadTheDocs](https://pytermmenu.readthedocs.io/en/latest/index.html)
