@@ -14,14 +14,14 @@ class Menu:
 		This is the text displayed at the top of the menu list.
 		Defaults to "Choose one:"
 	start: Optional[:class:`int`]
-		This changes which number the normal entries indexes from, defaults to 1.
+		This changes which number the normal entries indexes from, defaults to 0. :)
 
 	"""
 
 
 	def __init__(self, **kwargs):
 		self.title = kwargs.get('title', 'Choose one:')
-		self.start = kwargs.get('start', 1)
+		self.start = kwargs.get('start', 0)
 
 		self.entrydict = {}
 		self.next = 0
