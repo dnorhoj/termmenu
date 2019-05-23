@@ -24,7 +24,7 @@ To install, you need pip for python3
 pip install termmenu
 ```
 
-Also, check out the project on [PyPi](https://pypi.org/project/termmenu/)
+Also, check out the project on [PyPi](https://pypi.org/project/termmenu/).
 
 ## Contributing
 
