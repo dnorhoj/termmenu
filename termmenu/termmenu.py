@@ -15,7 +15,6 @@ class Menu:
 		Defaults to "Choose one:"
 	start: Optional[:class:`int`]
 		This changes which number the normal entries indexes from, defaults to 0. :)
-
 	"""
 
 
@@ -26,7 +25,7 @@ class Menu:
 		self.entrydict = {}
 		self.next = 0
 		self.specialentries = {}
-	
+
 	def add_entry(self, text:str, **kwargs):
 		r"""This function adds new entries to the list.
 
@@ -34,11 +33,18 @@ class Menu:
 		-----------
 		text: :class:`str`
 			The text next to the number or custom entry key.
+		submenu: Optional[:class:`Menu`]
+			A Menu that will be ``.run()`` with the arguments specified in the ``submenuargs`` argument.
+
+			If ``submenu`` is specified then the ``run`` argument will not be executed.
+		submenuargs: Optional[:class:`dict`]
+			Arguments that will be passed to the ``submenu`` when run.
+			Example: ``{"allowother": True}``
 		run: Optional[:class:`function`]
-			Function or :class:`Menu` object
-			If it's a function, then it will be run when user selects that entry.
-			If it's a Menu object, it will enter that menu as a submenu when the user selects that entry
+			Function that will be run when user selects that entry.
 			Defaults to ``None`` and it will just return selected entry.
+			
+			Has lower priority than the ``submenu`` argument
 		entry: Optional[:class:`str`]
 			Custom entry, instead of number.
 			All custom entries will be displayed after the numbered entries.
@@ -54,8 +60,16 @@ class Menu:
 		entry = {}
 		entry['text'] = text
 		run = kwargs.get('run', None)
+		submenu = kwargs.get('submenu', None)
+		
+		entry['submenuargs'] = kwargs.get('submenuargs', {})
+		
+		if isinstance(submenu, Menu):
+			entry['submenu'] = submenu
+		else:
+			entry['submenu'] = None
 
-		if callable(run):
+		if callable(run) and not entry['submenu'] is None:
 			entry['run'] = run
 		else:
 			entry['run'] = None
@@ -102,8 +116,8 @@ class Menu:
 
 		"""
 		prompt = kwargs.get('prompt', '>')
-		allowother = kwargs.get('allowother', False)
 		listformat = kwargs.get('listformat', "{entry}. {name}")
+		allowother = kwargs.get('allowother', False)
 
 		entries = {**self.entrydict, **self.specialentries}
 
@@ -115,6 +129,10 @@ class Menu:
 
 		for name, entry in entries.items():
 			if name.lower() == ans.lower():
+				if not entry['submenu'] is None:
+					entry['submenu'].run(**entry['submenuargs'])
+					return ans
+
 				if not entry['run'] is None:
 					entry['run']()
 				return ans
