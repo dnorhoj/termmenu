@@ -16,20 +16,6 @@ Choose one:
 
 Read the documentation on [ReadTheDocs](https://pytermmenu.readthedocs.io/en/latest/index.html).
 
-## Usage
+## Contributing
 
-To start off you need to import the library, and create a new menu.
-
-```py
-import termmenu
-
-testmenu = termmenu.Menu(title="What's up") # title is optional
-```
-
-### Adding entries
-
-To add entries, we use `Menu.add_entry`, usage:
-
-```py
-Menu.add_entry(text, run=None, entry=None)
-```
+You are welcome to contribute.
