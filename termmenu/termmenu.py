@@ -35,7 +35,9 @@ class Menu:
 		text: :class:`str`
 			The text next to the number or custom entry key.
 		run: Optional[:class:`function`]
-			Function that will be run when user selects that value.
+			Function or :class:`Menu` object
+			If it's a function, then it will be run when user selects that entry.
+			If it's a Menu object, it will enter that menu as a submenu when the user selects that entry
 			Defaults to ``None`` and it will just return selected entry.
 		entry: Optional[:class:`str`]
 			Custom entry, instead of number.
