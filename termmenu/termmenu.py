@@ -51,8 +51,12 @@ class Menu:
 		"""
 		entry = {}
 		entry['text'] = text
-		if callable(kwargs.get('run', None)):
-			entry['run'] = kwargs.get('run', None)
+		run = kwargs.get('run', None)
+
+		if callable(run):
+			entry['run'] = run
+		else:
+			entry['run'] = None
 		
 		customentry = kwargs.get('entry', None)
 
