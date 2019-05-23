@@ -16,6 +16,16 @@ Choose one:
 
 Read the documentation on [ReadTheDocs](https://pytermmenu.readthedocs.io/en/latest/index.html).
 
+## Install
+
+To install, you need pip for python3
+
+```sh
+pip install termmenu
+```
+
+Also, check out the project on [PyPi](https://pypi.org/project/termmenu/)
+
 ## Contributing
 
 You are welcome to contribute.
