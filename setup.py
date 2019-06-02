@@ -2,7 +2,7 @@ import setuptools
 
 setuptools.setup(
     name="termmenu",
-    version="2.0",
+    version="2.0.1",
     author="dnorhoj",
     author_email="daniel.norhoj@gmail.com",
     description="A tool for making terminal menus.",

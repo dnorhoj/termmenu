@@ -69,7 +69,7 @@ class Menu:
 		else:
 			entry['submenu'] = None
 
-		if callable(run) and not entry['submenu'] is None:
+		if callable(run) and entry['submenu'] is None:
 			entry['run'] = run
 		else:
 			entry['run'] = None
