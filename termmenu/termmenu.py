@@ -34,7 +34,7 @@ class Menu:
 		text: :class:`str`
 			The text next to the number or custom entry key.
 		submenu: Optional[:class:`Menu`]
-			A Menu that will be ``.run()`` with the arguments specified in the ``submenuargs`` argument.
+			A Menu that will get invoked with the arguments specified in the ``submenuargs`` argument if the given entry is selected.
 
 			If ``submenu`` is specified then the ``run`` argument will not be executed.
 		submenuargs: Optional[:class:`dict`]
@@ -97,7 +97,7 @@ class Menu:
 			The prompt text to be used in the input()
 			Defaults to "> "
 		allowother: Optional[:class:`bool`]
-			Changes wether it's going to return :class:`EntryNotFoundError` if user writes entry that isn't in the list.
+			If true, the function will raise :class:`EntryNotFoundError` if the selected entry is not in the menu.
 			Defaults to ``True``
 		listformat: Optional[:class:`str`]
 			How the menu list is shown.
